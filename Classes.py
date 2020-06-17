@@ -1,4 +1,6 @@
 
+  
+
 #https://www.youtube.com/watch?v=apACNr7DC_s
 
 
@@ -87,4 +89,35 @@ print(user.first_name)
 print(user.last_name)
 print(user.birthday)
 
-help(User) #Help shows doc string and expected inputs
+#instance variables vs class variables
+#https://www.youtube.com/watch?v=BJ-VvGyQxho&t=626s
+class Employee:
+    
+    num_of_emps=0
+    raise_amount=1.04
+    
+    def __init__(self, first, last, pay):
+        self.first=first
+        self.last=last
+        self.pay=pay
+        self.email=first+"."+last+"@company.com"
+        
+        Employee.num_of_emps+=1
+    def fullname(self):
+        return "{} {}".format(self.first,self.last)
+    def apply_raise(self):
+        self.pay=int(self.pay*self.raise_amount)
+    
+        
+emp1=Employee("Shinichi","Kawai",40000)
+emp2=Employee("Francisco", "Flores",80000)
+print(Employee.num_of_emps)
+
+print(emp1.email)
+print(emp2.email)
+print(emp1.fullname())
+
+emp1.raise_amount=1.05
+print(Employee.raise_amount)
+print(emp1.raise_amount)
+print(emp2.raise_amount)
